@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="../static/codemirror/codemirror/lib/codemirror.js"></script>
+    <link rel="stylesheet" href="../static/codemirror/codemirror/lib/codemirror.css">
+    <link rel="stylesheet" href="../static/codemirror/codemirror/theme/darcula.css">
+    <script src="../static/codemirror/codemirror/mode/python/python.js"></script>
+</head>
+
+<body>
+<div class="container" id="app">
+    <label>
+        <textarea v-model="text" id="codeeditor"></textarea>
+    </label>
+    <script>
+        new Vue({
+            el: '#app'
+            }
+
+        )
+
+
+
+
+        var myCodeMirror = CodeMirror.fromTextArea(document.getElementById('codeeditor'), {
+    theme: "darcula",
+    lineNumbers: true,
+    tabSize: 4,
+    indentWithTabs: true
+});
+    </script>
+</div>
+</body>
+
+</html>

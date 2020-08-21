@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Task</title>
+    <script src="../static/codemirror/codemirror/lib/codemirror.js"></script>
+    <link rel="stylesheet" href="../static/codemirror/codemirror/lib/codemirror.css">
+    <link rel="stylesheet" href="../static/codemirror/codemirror/theme/material-ocean.css">
+    <script src="../static/codemirror/codemirror/mode/python/python.js"></script>
+    <link rel="canonical" href="https://getbootstrap.com/docs/4.5/examples/cover/">
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+          integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.2/axios.js"></script>
+    <link href="../static/css/style.css" rel="stylesheet">
+</head>
+
+<body>
+
+<div id="app" class="container">
+
+    <h1 class="cover-heading center" align="center">Решение задач на код</h1>
+    <form id="message"  @submit.prevent="solveTask">
+        {% csrf_token %}
+        <label for="codeeditor">Напишите метод суммирующий два числа a и b.</label>
+        <textarea class="form-control border" rows="5" v-model="text" id="codeeditor" v-bind:disabled="loading"></textarea>
+        <button type="submit" class="mt-3 btn-lg btn-secondary" v-bind:disabled="loading">
+            Отправить
+        </button>
+    </form>
+    <h1 align="right" v-if="status === 'correct'"> Correct </h1>
+    <h1 align="right" v-if="status === 'wrong'"> Wrong </h1>
+        <div class="preloader" v-if="loading">
+            <div class="preloader__row">
+                <div class="preloader__item"></div>
+                <div class="preloader__item"></div>
+            </div>
+        </div>
+</div>
+
+<script src="../static/js/scripts.js"></script>
+</body>
+</html>
